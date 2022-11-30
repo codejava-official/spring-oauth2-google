@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: html_head(pageTitle='Create New Product')" />
+<body>
+	<div th:replace="fragments :: header"></div>
+	<div align="center">	
+		<h1>Create New Product</h1>
+		<br/>
+		<form action="#" th:action="@{/save}" th:object="${product}" method="post">
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Product Name:</td>
+					<td><input type="text" th:field="*{name}" class="form-control" /></td>
+				</tr>
+				<tr>
+					<td>Brand:</td>
+					<td><input type="text" th:field="*{brand}" class="form-control" /></td>
+				</tr>				
+				<tr>
+					<td>Made in:</td>
+					<td><input type="text" th:field="*{madein}" class="form-control" /></td>
+				</tr>				
+				<tr>
+					<td>Price:</td>
+					<td><input type="text" th:field="*{price}" class="form-control" /></td>
+				</tr>				
+				<tr>
+					<td colspan="2" align="center"><button type="submit" class="btn btn-primary">Save</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

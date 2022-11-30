@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:fragment="html_head(pageTitle)">
+	<meta charset="ISO-8859-1">
+	<title>[[${pageTitle}]]</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>	
+</head>
+<body>
+	<th:block th:fragment="header">
+	<div sec:authorize="isAuthenticated()" class="text-center p-3">
+		<form th:action="@{/logout}" method="post">
+			Welcome <b><span sec:authentication="name">Username</span></b>
+			&nbsp;
+			<input type="submit" value="Logout" />
+		</form>
+	</div>
+	</th:block>
+</body>
+</html>
